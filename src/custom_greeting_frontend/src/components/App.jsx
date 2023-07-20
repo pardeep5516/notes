@@ -23,6 +23,7 @@ function App() {
         setNotes(notesArray);
     }
     function deleteNote(id) {
+        custom_greeting_backend.removeNotes(id);
         setNotes(prevNotes => {
             return prevNotes.filter((noteItem, index) => {
                 return index !== id;
