@@ -1,18 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
+import { custom_greeting_backend } from "../../../declarations/custom_greeting_backend/index.js";
 
 function App() {
     const [notes, setNotes] = useState([]);
 
     function addNote(newNote) {
         setNotes(prevNotes => {
-            return [...prevNotes, newNote];
+            custom_greeting_backend.createNote(newNote.title, newNote.content);
+            return [newNote, ...prevNotes];
         });
     }
-
+    useEffect(() => {
+        console.log("useEffect");
+        fetchData();
+    }, []);
+    async function fetchData() {
+        const notesArray = await custom_greeting_backend.readNotes()
+        setNotes(notesArray);
+    }
     function deleteNote(id) {
         setNotes(prevNotes => {
             return prevNotes.filter((noteItem, index) => {
