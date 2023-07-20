@@ -4,6 +4,9 @@ Welcome to your new custom_greeting project and to the internet computer develop
 
 To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
 
+
+<img src="./Screenshot.png" alt="Notrs" title="Nots">
+
 To learn more before you start working with custom_greeting, see the following documentation available online:
 
 - [Quick Start](https://internetcomputer.org/docs/current/developer-docs/quickstart/hello10mins)
